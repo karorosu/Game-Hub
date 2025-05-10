@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #1e1e2e;
+      color: white;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #27293d;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .sidebar ul li {
+      padding: 10px;
+      margin: 10px 0;
+      background: #32344a;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+    .sidebar ul li:hover {
+      background: #ff4757;
+    }
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+      width: calc(100% - 270px);
+    }
+    .top-cards {
+      display: flex;
+      justify-content: space-between;
+    }
+    .card {
+      background: #32344a;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 23%;
+      text-align: center;
+    }
+    .charts {
+      display: flex;
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+    .chart-container {
+      background: #32344a;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 48%;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Game Dashboard</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Top Games</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+      <li><a href="#">Live Matches</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="top-cards">
+      <div class="card">1,200,000<br><small>Total Players</small></div>
+      <div class="card">3,500+<br><small>Active Matches</small></div>
+      <div class="card">98%<br><small>Server Uptime</small></div>
+      <div class="card">50+<br><small>New Games Added</small></div>
+    </div>
+    <div class="charts">
+      <div class="chart-container">
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ctx1 = document.getElementById('barChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['FPS', 'RPG', 'MOBA', 'Battle Royale', 'Sports'],
+        datasets: [{
+          label: 'Player Count (in millions)',
+          data: [30, 25, 40, 35, 20],
+          backgroundColor: 'rgba(255, 99, 132, 0.6)'
+        }]
+      }
+    });
+
+    const ctx2 = document.getElementById('pieChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['PC', 'Console', 'Mobile'],
+        datasets: [{
+          label: 'Platform Distribution',
+          data: [45, 35, 20],
+          backgroundColor: ['red', 'blue', 'green']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
