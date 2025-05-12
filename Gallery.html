@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: linear-gradient(135deg, #1f1f1f, #292929);
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #f93;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .gallery-item h3 {
+      font-size: 18px;
+      color: #f9f9f9;
+      text-align: center;
+    }
+
+    video {
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎮 Game Gallery — 4 Games & 4 Videos</h1>
+  </header>
+
+  <div class="gallery-container">
+    <!-- Game Images -->
+    <div class="gallery-item">
+      <img src="Zelda.jpg" alt="Zelda">
+      <h3>The Legend of Zelda</h3>
+    </div>
+    <div class="gallery-item">
+      <img src="minecraft.jpg" alt="Minecraft">
+      <h3>Minecraft</h3>
+    </div>
+    <div class="gallery-item">
+      <img src="fortnite.jpg" alt="Fortnite">
+      <h3>Fortnite</h3>
+    </div>
+    <div class="gallery-item">
+      <img src="mario.jpg" alt="Mario">
+      <h3>Super Mario</h3>
+    </div>
+
+    <!-- Game Videos -->
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-zelda-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Zelda Gameplay</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-minecraft-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Minecraft Adventure</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-fortnite-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Fortnite Highlights</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-mario-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Mario World Tour</h3>
+    </div>
+  </div>
+
+</body>
+</html>
