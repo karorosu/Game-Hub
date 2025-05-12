@@ -1,138 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
+
     body {
-      display: flex;
-      background-color: #1e1e2e;
-      color: white;
+      font-family: 'Outfit', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
     }
-    .sidebar {
-      width: 250px;
-      background-color: #27293d;
-      height: 100vh;
-      padding: 20px;
-      position: fixed;
-    }
-    .sidebar h2 {
+
+    header {
       text-align: center;
-      margin-bottom: 20px;
+      padding: 40px 20px 20px;
+      background: linear-gradient(135deg, #1f1f1f, #292929);
     }
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #f93;
     }
-    .sidebar ul li {
-      padding: 10px;
-      margin: 10px 0;
-      background: #32344a;
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .gallery-item h3 {
+      font-size: 18px;
+      color: #f9f9f9;
       text-align: center;
-      transition: background 0.3s;
     }
-    .sidebar ul li a {
-      color: white;
-      text-decoration: none;
-      display: block;
+
+    video {
+      outline: none;
     }
-    .sidebar ul li:hover {
-      background: #ff4757;
-    }
-    .main-content {
-      margin-left: 270px;
-      padding: 20px;
-      width: calc(100% - 270px);
-    }
-    .top-cards {
-      display: flex;
-      justify-content: space-between;
-    }
-    .card {
-      background: #32344a;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 23%;
-      text-align: center;
-    }
-    .charts {
-      display: flex;
-      margin-top: 20px;
-      justify-content: space-between;
-    }
-    .chart-container {
-      background: #32344a;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 48%;
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Game Dashboard</h2>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="dashboard.html">Top Games</a></li>
-      <li><a href="contact.html">Contact us</a></li>
-      <li><a href="Gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact us</a></li>
-      <li><a href="about-me.html">about me</a></li>
-    </ul>
-  </div>
-  <div class="main-content">
-    <div class="top-cards">
-      <div class="card">1,200,000<br><small>Total Players</small></div>
-      <div class="card">3,500+<br><small>Active Matches</small></div>
-      <div class="card">98%<br><small>Server Uptime</small></div>
-      <div class="card">50+<br><small>New Games Added</small></div>
+
+  <header>
+    <h1>🎮 Game Gallery — 4 Games & 4 Videos</h1>
+  </header>
+
+  <div class="gallery-container">
+    <!-- Game Images -->
+    <div class="gallery-item">
+      <img src="Zelda.jpg" alt="Zelda">
+      <h3>The Legend of Zelda</h3>
     </div>
-    <div class="charts">
-      <div class="chart-container">
-        <canvas id="barChart"></canvas>
-      </div>
-      <div class="chart-container">
-        <canvas id="pieChart"></canvas>
-      </div>
+    <div class="gallery-item">
+      <img src="minecraft.jpg" alt="Minecraft">
+      <h3>Minecraft</h3>
+    </div>
+    <div class="gallery-item">
+      <img src="fortnite.jpg" alt="Fortnite">
+      <h3>Fortnite</h3>
+    </div>
+    <div class="gallery-item">
+      <img src="mario.jpg" alt="Mario">
+      <h3>Super Mario</h3>
+    </div>
+
+    <!-- Game Videos -->
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-zelda-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Zelda Gameplay</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-minecraft-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Minecraft Adventure</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-fortnite-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Fortnite Highlights</h3>
+    </div>
+    <div class="gallery-item">
+      <video controls>
+        <source src="your-mario-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Mario World Tour</h3>
     </div>
   </div>
 
-  <script>
-    const ctx1 = document.getElementById('barChart').getContext('2d');
-    new Chart(ctx1, {
-      type: 'bar',
-      data: {
-        labels: ['FPS', 'RPG', 'MOBA', 'Battle Royale', 'Sports'],
-        datasets: [{
-          label: 'Player Count (in millions)',
-          data: [30, 25, 40, 35, 20],
-          backgroundColor: 'rgba(255, 99, 132, 0.6)'
-        }]
-      }
-    });
-
-    const ctx2 = document.getElementById('pieChart').getContext('2d');
-    new Chart(ctx2, {
-      type: 'pie',
-      data: {
-        labels: ['PC', 'Console', 'Mobile'],
-        datasets: [{
-          label: 'Platform Distribution',
-          data: [45, 35, 20],
-          backgroundColor: ['red', 'blue', 'green']
-        }]
-      }
-    });
-  </script>
 </body>
 </html>
