@@ -31,6 +31,24 @@
       color: #f93;
     }
 
+    .back-button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background-color: #f93;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #ffb84d;
+    }
+
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -52,8 +70,7 @@
       transform: translateY(-5px);
     }
 
-    .gallery-item img,
-    .gallery-item video {
+    .gallery-item img {
       width: 100%;
       height: auto;
       border-radius: 12px;
@@ -66,8 +83,23 @@
       text-align: center;
     }
 
-    video {
-      outline: none;
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     @media (max-width: 600px) {
@@ -81,6 +113,7 @@
 
   <header>
     <h1>🎮 Game Gallery — 4 Games & 4 Videos</h1>
+    <button class="back-button" onclick="history.back()">← Go Back</button>
   </header>
 
   <div class="gallery-container">
@@ -104,31 +137,30 @@
 
     <!-- Game Videos -->
     <div class="gallery-item">
-      <video controls>
-        <source src="your-zelda-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/zw47_q9wbBE" frameborder="0" allowfullscreen></iframe>
+      </div>
       <h3>Zelda Gameplay</h3>
     </div>
+
     <div class="gallery-item">
-      <video controls>
-        <source src="your-minecraft-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/MmB9b5njVbA" frameborder="0" allowfullscreen></iframe>
+      </div>
       <h3>Minecraft Adventure</h3>
     </div>
+
     <div class="gallery-item">
-      <video controls>
-        <source src="your-fortnite-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/2gUtfBmw86Y" frameborder="0" allowfullscreen></iframe>
+      </div>
       <h3>Fortnite Highlights</h3>
     </div>
+
     <div class="gallery-item">
-      <video controls>
-        <source src="your-mario-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container">
+        <iframe src="https://www.youtube-nocookie.com/embed/iz5c1XRT6_k?si=lkJDrNZ3WMO1Cl96" frameborder="0" allowfullscreen></iframe>
+      </div>
       <h3>Mario World Tour</h3>
     </div>
   </div>
